@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="FarmerMasterPage.master.cs" Inherits="Farmer_FarmerMasterPage" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>AgriRental - Farmer Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .sidebar {
+            background-color: #40916c;
+            min-height: 100vh;
+            padding: 20px 10px;
+            text-align: left;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar a:hover {
+            background-color: #d3f9d8;
+            color: #000;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar i {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .header-bar {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .footer {
+            background-color: #2d6a4f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .content-area {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+        <form id="form2" runat="server">
+        <div class="container-fluid">
+            <!-- Header -->
+            <center><div class="row">
+                <div class="col-12 header-bar">
+   <img src="../Images/logo1.jpg" alt="Logo" width="25" height="25" class="rounded-circle me-2 border border-white" />
+                    Welcome to AgriMarket Vendor Panel
+                </div>
+            </div>
+</center>
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-2 col-lg-2 sidebar">
+                    <a href="FarmerDashboard.aspx" class="d-flex align-items-center mb-3 text-white text-decoration-none">
+<%--                        <img src="../Images/logo1.jpg" alt="Logo" width="25" height="25" class="rounded-circle me-2 border border-white" />--%>
+<%--                        <span class="logo-text">AgriMarket</span>--%>
+                    </a>
+                    <br />
+                    <asp:Image ID="imgProfile" runat="server" CssClass="rounded-circle border border-success shadow"
+                        Width="50px" Height="50px" />
+                    <h2 class="text-success">
+                        <asp:Label ID="lblFarmerName" runat="server" Text="" Style="color:white"></asp:Label>
+                    </h2>
+                    <hr />
+                    <nav>
+                        <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Default.aspx"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="UpdateProfile.aspx"><i class="bi bi-person-lines-fill"></i> Update Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Products.aspx"><i class="bi bi-receipt-cutoff"></i> Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="RequsetPage.aspx"><i class="bi bi-shop"></i> Request Status</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FarmerViewTransactions.aspx"><i class="bi bi-bar-chart"></i> Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Default.aspx"><i class="bi bi-box-arrow-left"></i> Logout</a>
+                        </li>
+                    </ul>
+                    </nav>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="col-md-10 content-area">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="row">
+                <div class="col-12 footer">
+                    &copy; <%= DateTime.Now.Year %> AgriMarket | All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </form>
+
+<%--    <form id="form1" runat="server">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="d-flex align-items-center">
+                <img src="../Images/logo1.jpg" class="rounded-circle border border-white me-2" />
+                <span class="header-title">AgriRental - Farmer Panel</span>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Sidebar -->
+                <div class="col-md-3 col-lg-2 sidebar">
+                    <div class="text-center mb-4">
+                        <asp:Image ID="imgFarmer" runat="server" CssClass="rounded-circle border border-light shadow mb-2" Width="60px" Height="60px" />
+                        <div class="profile-label">
+                            <asp:Label ID="lblshow" runat="server" Text="Farmer Name" />
+                        </div>
+                    </div>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Default.aspx"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="UpdateProfile.aspx"><i class="bi bi-person-lines-fill"></i> Update Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Products.aspx"><i class="bi bi-receipt-cutoff"></i> Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="RequsetPage.aspx"><i class="bi bi-shop"></i> Request Status</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FarmerViewTransactions.aspx"><i class="bi bi-bar-chart"></i> Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Default.aspx"><i class="bi bi-box-arrow-left"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9 col-lg-10 content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="row mt-3">
+                <div class="col-12 footer">
+                    &copy; <%= DateTime.Now.Year %> AgriMarket | Empowering Farmers with Technology
+                </div>
+            </div>
+        </div>
+    </form>--%>
+</body>
+</html>

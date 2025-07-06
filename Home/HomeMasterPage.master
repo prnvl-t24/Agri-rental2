@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Home/HomeMasterPage.master.cs" Inherits="Home_HomeMasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <title>Online Agri Business Platform</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: linear-gradient(to right, #e0ffe0, #ffffff);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background-color: #2d6a4f !important; /* Custom navbar color */
+        }
+
+        .navbar-brand, .nav-link, .dropdown-toggle {
+            color: #fff !important;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .dropdown-item:hover {
+            background-color: #95d5b2 !important;
+            color: #000 !important;
+        }
+
+        .dropdown-menu {
+            background-color: #d8f3dc;
+            border-radius: 8px;
+        }
+
+        .container-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .footer {
+            background-color: #40916c;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 15px;
+        }
+
+        h2 {
+            color: #2d6a4f;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <!-- Navbar with custom background color -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../Default.aspx">AgriRental </a>
+                    <img src="../Images/logo1.jpg" alt="AgriMarket Logo" class="rounded-circle mb-3" style="width: 50px; height: 50px; border: 3px solid #2d6a4f;" />
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="../Default.aspx">Home</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="farmerDropdown" role="button" data-bs-toggle="dropdown">
+                                    Registration
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="../Home/FarmerRegistration.aspx">Farmer</a></li>
+                                    <li><a class="dropdown-item" href="../Home/VendorRegistration.aspx">Vendor</a></li>
+
+                                 
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                  Login
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a class="dropdown-item" href="../Home/FarmerLogin.aspx">Farmer</a></li>
+                                    <li><a class="dropdown-item" href="../Home/VendorLogin.aspx">Vendor</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container mt-4">
+                <asp:ContentPlaceHolder  ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        <%--    <div class="footer">
+                <p>&copy; 2025 AgriMarket. All rights reserved.</p>
+            </div>--%>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </form>
+</body>
+</html>
